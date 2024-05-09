@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
 #
-# This script updates the current repository with the latest version of the templates.
+# This script updates the current repository with the latest version of the templates. It creates a new branch and a pull request.
 #
 
 function check_or_exit_dependencies() {
