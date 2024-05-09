@@ -1,0 +1,18 @@
+{
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  extends: ["github>Hapag-Lloyd/Renovate-Global-Configuration"],
+
+  packageRules: [
+    {
+      matchManagers: ["github-actions"],
+      automerge: false,
+      description: "Do not auto-merge changes in the github-actions as we are referencing theses actions in the `this_*` files which would then create a new PR (circular dependency).",
+    },
+    {
+      matchManagers: ["github-actions"],
+      matchFileNames: [".github/workflows/this_*"],
+      groupName: "GitHub Actions",
+      description: "Group all github-actions packages together as actions use the same digest.",
+    },
+  ],
+}
