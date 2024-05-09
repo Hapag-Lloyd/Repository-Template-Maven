@@ -5,14 +5,14 @@ set -euo pipefail
 # This script updates the current repository with the latest version of the templates. It creates a new branch and a pull request.
 #
 
-function check_or_exit_dependencies() {
+function ensure_dependencies_or_exit() {
   if ! command -v gh &> /dev/null; then
     echo "gh is not installed. Please install it from https://cli.github.com/"
     exit 1
   fi
 }
 
-function check_repo_precondition_or_exit() {
+function ensure_repo_preconditions_or_exit() {
   # ensure main branch
   if [ "$(git branch --show-current)" != "main" ]; then
     echo "The current branch is not main. Please switch to the main branch."
@@ -26,8 +26,8 @@ function check_repo_precondition_or_exit() {
   fi
 }
 
-check_or_exit_dependencies
-check_repo_precondition_or_exit
+ensure_dependencies_or_exit
+ensure_repo_preconditions_or_exit
 
 latest_template_path=$(mktemp -d -t repository-template)
 new_branch_name=$(basename "$latest_template_path")

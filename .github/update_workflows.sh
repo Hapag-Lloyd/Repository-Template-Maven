@@ -6,14 +6,14 @@ set -euo pipefail
 # pull request.
 #
 
-function ensure_dependencies() {
+function ensure_dependencies_or_exit() {
   if ! command -v yq &> /dev/null; then
     echo "yq is not installed. https://github.com/mikefarah/yq"
     exit 1
   fi
 }
 
-function ensure_repo_precondition_or_exit() {
+function ensure_repo_preconditions_or_exit() {
   # ensure main branch
   if [ "$(git branch --show-current)" != "main" ]; then
     echo "The current branch is not main. Please switch to the main branch."
@@ -141,8 +141,8 @@ function fix_workflow_files() {
   done
 }
 
-ensure_dependencies
-ensure_repo_precondition_or_exit
+ensure_dependencies_or_exit
+ensure_repo_preconditions_or_exit
 
 latest_template_path=$(mktemp -d -t repository-template)
 new_branch_name=$(basename "$latest_template_path")
