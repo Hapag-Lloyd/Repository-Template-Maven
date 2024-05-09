@@ -12,3 +12,5 @@ Adds the license file to the project.
 
 - do not use other licenses than the ones provided in the `licenses` folder due to possible legal issues
 - do not change the license file in any way
+
+pr-title: chore: set up the `LICENSE` file
