@@ -98,7 +98,12 @@ if git branch | grep -q "$branch_name"; then
 fi
 
 # initialize the LICENSE and CODEOWNERS file
-create_and_show_pr_for_init_branch "init-license"
-create_and_show_pr_for_init_branch "init-codeowners"
+
+# find all init- branches
+init_branches=$(git branch | grep "init-")
+
+for init_branch in $init_branches; do
+  create_and_show_pr_for_init_branch "$init_branch"
+done
 
 rm -rf "$latest_template_path"
