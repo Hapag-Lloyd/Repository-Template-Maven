@@ -48,12 +48,18 @@ function create_and_show_pr_for_init_branch() {
 ensure_dependencies_or_exit
 ensure_repo_preconditions_or_exit
 
-latest_template_path=$(mktemp -d -t repository-template)
+latest_template_path=$(mktemp -d -t repository-template-XXXXX)
 new_branch_name=$(basename "$latest_template_path")
 
 # clone the default branch to get the latest version of the template files
-gh repo clone https://github.com/Hapag-Lloyd/Repository-Template-Maven.git "$latest_template_path"
+(
+  gh repo clone https://github.com/Hapag-Lloyd/Repository-Template-Maven.git "$latest_template_path"
 
+  # FIXME remove
+  cd "$latest_template_path" || exit 7
+  git checkout kayma/init
+)
+  
 # create a new branch to update the templates
 git checkout -b "$new_branch_name"
 
@@ -97,3 +103,5 @@ fi
 # initialize the LICENSE and CODEOWNERS file
 create_and_show_pr_for_init_branch "init-license"
 create_and_show_pr_for_init_branch "init-codeowners"
+
+rm -rf "$latest_template_path"

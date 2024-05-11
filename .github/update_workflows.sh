@@ -25,12 +25,16 @@ function ensure_repo_preconditions_or_exit() {
   fi
 }
 
-latest_workflows_path=$(mktemp -d -t repository-template)
+current_directory=$(pwd)
+latest_workflows_path=$(mktemp -d -t repository-template-XXXXX)
 
-gh repo clone https://github.com/Hapag-Lloyd/Workflow-Template.git "$latest_workflows_path"
+gh repo clone https://github.com/Hapag-Lloyd/Workflow-Templates.git "$latest_workflows_path"
 
 # update the workflows
 (
   cd "$latest_workflows_path" || exit 7
-  ./update_workflows.sh .. maven
+
+  ./update-workflows.sh "$current_directory" maven
 )
+
+rm -rf "$latest_workflows_path"
