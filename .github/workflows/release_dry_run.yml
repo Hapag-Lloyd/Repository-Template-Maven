@@ -9,6 +9,6 @@ on:
 
 jobs:
   default:
-    # yaml-lint disable-line rule:line-length
+    # yamllint disable-line rule:line-length
     uses: Hapag-Lloyd/Workflow-Templates/.github/workflows/maven_release_dry_run_callable.yml@c34ea75ff9e52d92a9433a19dd9fcd473bac2eee
     secrets: inherit
