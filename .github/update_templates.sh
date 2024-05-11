@@ -26,6 +26,25 @@ function ensure_repo_preconditions_or_exit() {
   fi
 }
 
+function create_and_show_pr_for_init_branch() {
+  local branch_name=$1
+
+  if git branch | grep -q "$branch_name"; then
+    git checkout "$branch_name"
+
+    title=$(head -n1 pr-description.md)
+    body=$(tail -n2 pr-description.md)
+
+    rm pr-description.md
+    git add .
+    git commit -m "remove the PR description"
+    git push
+
+    gh pr create --title "$title" --body "$body" --base main --head "$branch_name"
+    gh pr view --web
+  fi
+}
+
 ensure_dependencies_or_exit
 ensure_repo_preconditions_or_exit
 
@@ -56,3 +75,25 @@ gh pr create --title "chore: update project templates" --body "This PR updates t
 
 echo "The project templates have been updated. Please review and merge the pull request."
 gh pr view --web
+
+# create PR to initialize the CODEOWNERS file
+branch_name="kayma/init-codeowners"
+
+if git branch | grep -q "$branch_name"; then
+  git checkout "$branch_name"
+
+  title=$(head -n1 pr-description.md)
+  body=$(tail -n2 pr-description.md)
+
+  rm pr-description.md
+  git add .
+  git commit -m "remove the PR description"
+  git push
+
+  gh pr create --title "$title" --body "$body" --base main --head "$branch_name"
+  gh pr view --web
+fi
+
+# initialize the LICENSE and CODEOWNERS file
+create_and_show_pr_for_init_branch "init-license"
+create_and_show_pr_for_init_branch "init-codeowners"
