@@ -52,13 +52,7 @@ latest_template_path=$(mktemp -d -t repository-template-XXXXX)
 new_branch_name=$(basename "$latest_template_path")
 
 # clone the default branch to get the latest version of the template files
-(
-  gh repo clone https://github.com/Hapag-Lloyd/Repository-Template-Maven.git "$latest_template_path"
-
-  # FIXME remove
-  cd "$latest_template_path" || exit 7
-  git checkout kayma/init
-)
+gh repo clone https://github.com/Hapag-Lloyd/Repository-Template-Maven.git "$latest_template_path"
 
 # create a new branch to update the templates
 git checkout -b "$new_branch_name"
