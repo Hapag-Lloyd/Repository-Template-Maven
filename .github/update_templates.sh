@@ -72,6 +72,9 @@ cp "$latest_template_path/.github/PULL_REQUEST_TEMPLATE.md" .github/
 # update contributing guidelines
 cp "$latest_template_path/.github/CONTRIBUTING.md" .github/
 
+# update the update scripts
+cp "$latest_template_path/.github"/update_*.sh .github/
+
 # create a commit, push it and open a pull request
 git add .github
 git commit -m "chore: update project templates"
