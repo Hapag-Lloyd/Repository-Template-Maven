@@ -25,6 +25,9 @@ function ensure_repo_preconditions_or_exit() {
   fi
 }
 
+ensure_dependencies_or_exit
+ensure_repo_preconditions_or_exit
+
 current_directory=$(pwd)
 latest_workflows_path=$(mktemp -d -t repository-template-XXXXX)
 
