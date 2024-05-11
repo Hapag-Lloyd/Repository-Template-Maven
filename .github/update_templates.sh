@@ -59,7 +59,7 @@ new_branch_name=$(basename "$latest_template_path")
   cd "$latest_template_path" || exit 7
   git checkout kayma/init
 )
-  
+
 # create a new branch to update the templates
 git checkout -b "$new_branch_name"
 
