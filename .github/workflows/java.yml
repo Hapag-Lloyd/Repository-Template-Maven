@@ -1,0 +1,11 @@
+---
+name: Build Java PR
+
+# yamllint disable-line rule:truthy
+on:
+  pull_request:
+
+jobs:
+  default:
+    uses: Hapag-Lloyd/Workflow-Templates/.github/workflows/maven_java_callable.yml@c34ea75ff9e52d92a9433a19dd9fcd473bac2eee
+    secrets: inherit
