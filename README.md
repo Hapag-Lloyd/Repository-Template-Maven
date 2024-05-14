@@ -4,12 +4,16 @@ Template repository for Maven projects. Don't forget to update the README.md fil
 run
 
 ```shell
-.github/update_workflows.sh
+git checkout main
 .github/update_templates.sh
 
 # strongly suggested!
 pre-commit install -c .github/pre-commit-config.yaml
 ```
+
+In case a major release is published on the Workflow-Template repository, run `.github/update_workflows.sh`. This creates a PR
+with the changes in the workflows. Carefully check the changes and merge them into the `main` branch.
+
 
 ## Development
 
@@ -17,6 +21,9 @@ pre-commit install -c .github/pre-commit-config.yaml
 
 This repository is used as a template repository for new Maven projects. Thus the newly created repository will have the same
 structure and configurations as this one.
+
+After merging into the `main` branch, use `.github/update_init_branches.sh` to merge these changes into the `init-` branches as
+well.
 
 ### `init-` branches
 
