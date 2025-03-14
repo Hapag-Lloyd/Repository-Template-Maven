@@ -7,5 +7,5 @@ on:
 
 jobs:
   default:
-    uses: Hapag-Lloyd/Workflow-Templates/.github/workflows/maven_java_callable.yml@e8c1c3deb93315b82c4bcd4957b215fd5f94e1c2
+    uses: Hapag-Lloyd/Workflow-Templates/.github/workflows/maven_java_callable.yml@5ed9f7afeb6602e27db70ac720e58d590b4fb6ae
     secrets: inherit
