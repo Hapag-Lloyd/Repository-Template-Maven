@@ -7,5 +7,5 @@ on:
 
 jobs:
   default:
-    uses: Hapag-Lloyd/Workflow-Templates/.github/workflows/default_spelling_callable.yml@e8c1c3deb93315b82c4bcd4957b215fd5f94e1c2
+    uses: Hapag-Lloyd/Workflow-Templates/.github/workflows/default_spelling_callable.yml@bfb4a34c93da6ccd4029a021679832bc6135a0a1
     secrets: inherit
