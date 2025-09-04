@@ -1,4 +1,4 @@
 javadocs
 kayma
-sonatype
 ossrh
+sonatype
