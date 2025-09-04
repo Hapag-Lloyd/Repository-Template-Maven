@@ -1,3 +1,6 @@
+<!-- ignore multiple H1 headings on same level -->
+<!-- markdownlint-disable-file MD025 -->
+
 # Description
 
 What is the overall goal of your PR? Which problem does it solve? Please also include relevant motivation and context.

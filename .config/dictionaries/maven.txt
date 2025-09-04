@@ -1,0 +1,4 @@
+javadocs
+kayma
+ossrh
+sonatype

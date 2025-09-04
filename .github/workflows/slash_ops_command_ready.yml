@@ -1,0 +1,14 @@
+---
+name: Execute ChatOps ready command
+
+# yamllint disable-line rule:truthy
+on:
+  repository_dispatch:
+    types:
+      - ready-command
+
+jobs:
+  default:
+    # yamllint disable-line rule:line-length
+    uses: Hapag-Lloyd/Workflow-Templates/.github/workflows/default_slash_ops_command_ready_callable.yml@c815ffef37e1a8f85672cc59b15677bc93fa0e6d # 1.21.3
+    secrets: inherit
