@@ -1,16 +1,4 @@
 {
   $schema: "https://docs.renovatebot.com/renovate-schema.json",
   extends: ["github>Hapag-Lloyd/Renovate-Global-Configuration"],
-  packageRules: [
-    {
-      description: "GitHub Actions in this repo which are used for this repo",
-      matchFileNames: [".github/workflows/this_**"],
-      semanticCommitType: "ci",
-    },
-    {
-      description: "GitHub Actions templates. The real assets we develop in this repo.",
-      matchFileNames: ["!.github/workflows/this_**"],
-      semanticCommitType: "chore",
-    },
-  ],
 }
