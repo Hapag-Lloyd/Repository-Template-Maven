@@ -9,6 +9,6 @@ on:
 
 jobs:
   default:
-    # using a GitHub only release here. Use .github/update_workflows.sh to switch to a Maven release
-    uses: Hapag-Lloyd/Workflow-Templates/.github/workflows/default_release_callable.yml@c34ea75ff9e52d92a9433a19dd9fcd473bac2eee
+    # yamllint disable-line rule:line-length
+    uses: Hapag-Lloyd/Workflow-Templates/.github/workflows/maven_release_callable.yml@80e6abe387e3e421c999f8d1db4fbd1c52dace73 # 1.22.68
     secrets: inherit
