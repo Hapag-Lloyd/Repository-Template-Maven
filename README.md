@@ -4,7 +4,7 @@ Template repository for Maven projects. Don't forget to update the README.md fil
 
 ## New repository setup
 
-Pre-requisite: Initialize the new repository with the workflows from https://github.com/Hapag-Lloyd/Workflow-Templates
+Pre-requisite: Initialize the new repository with the workflows from [Workflow-Templates](https://github.com/Hapag-Lloyd/Workflow-Templates).
 
 1. Copy `update_workflows_user.sh` to the new repository.
 2. Run `update_workflows_user.sh --init --force` in the new repository.
