@@ -14,6 +14,9 @@
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <maven.compiler.release>21</maven.compiler.release>
+
+        <!-- Skip automatic release to Maven Central, handled by GitHub Actions workflow (REPLACE) -->
+        <skip.release.maven.central>true</skip.release.maven.central>
     </properties>
 
     <profiles>
@@ -28,6 +31,9 @@
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
                         <version>3.2.8</version>
+                        <configuration>
+                            <skip>${skip.release.maven.central}</skip>
+                        </configuration>
                         <executions>
                             <execution>
                                 <id>sign-artifacts</id>
@@ -47,6 +53,7 @@
                             <serverId>ossrh</serverId>
                             <nexusUrl>https://oss.sonatype.org/</nexusUrl>
                             <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                            <skipRemoteStaging>${skip.release.maven.central}</skipRemoteStaging>
                         </configuration>
                     </plugin>
                 </plugins>
