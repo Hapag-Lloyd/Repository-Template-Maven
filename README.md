@@ -1,18 +1,21 @@
 # Repository-Template-Maven
 
-Template repository for Maven projects. Don't forget to update the README.md file with the project information and initially
-run
+Template repository for Maven projects. Don't forget to update the README.md file with the project information
 
-```shell
-git checkout main
-.github/update_templates.sh
+## New repository setup
 
-# strongly suggested!
-pre-commit install -c .github/pre-commit-config.yaml
-```
+Pre-requisite: Initialize the new repository with the workflows from [Workflow-Templates](https://github.com/Hapag-Lloyd/Workflow-Templates).
 
-In case a major release is published on the Workflow-Template repository, run `.github/update_workflows.sh`. This creates a PR
-with the changes in the workflows. Carefully check the changes and merge them into the `main` branch.
+1. Copy `update_workflows_user.sh` to the new repository.
+2. Run `update_workflows_user.sh --init --force` in the new repository.
+3. Follow the instructions in the PR description to finalize the setup.
+4. Merge the PRs into the `main` branch.
+
+## Updating existing repositories
+
+1. Run `./github/update_workflows.sh` in your repository.
+2. Follow the instructions in the PR description to finalize the update.
+3. Merge the PRs into the `main` branch.
 
 ## Development
 
@@ -31,3 +34,8 @@ and add a `pr-description.md` file with the description of the changes to be mad
 followed by a blank line and then the description.
 
 Never merge these branches directly into the `main` branch.
+
+### Dictionaries
+
+- use `.config/dictionaries/project.txt` to add project specific words to the spell checker exceptions.
+- use `.config/dictionaries/maven.txt` to add all unknown words from files which are copied to other repositories.
