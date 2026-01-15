@@ -14,10 +14,37 @@
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <maven.compiler.release>21</maven.compiler.release>
-
-        <!-- Skip automatic release to Maven Central, handled by GitHub Actions workflow (REPLACE) -->
-        <skip.release.maven.central>true</skip.release.maven.central>
     </properties>
+
+    <!-- REPLACE -->
+    <licenses>
+        <license>
+            <name>Apache 2.0</name>
+            <url>https://github.com/Hapag-Lloyd/log4j2-filtered-stacktrace-plugin/blob/main/LICENSE</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <organization>Hapag-Lloyd AG</organization>
+            <organizationUrl>https://www.hapag-lloyd.com/</organizationUrl>
+        </developer>
+    </developers>
+
+    <!-- REPLACE Update with your URL -->
+    <scm>
+        <connection>scm:git:git://github.com/Hapag-Lloyd/Repository-Template-Maven.git</connection>
+        <developerConnection>scm:git:ssh://gitHub.com:Hapag-Lloyd/Repository-Template-Maven.git</developerConnection>
+        <url>https://github.com/Hapag-Lloyd/Repository-Template-Maven/tree/main</url>
+    </scm>
+
+    <distributionManagement>
+        <repository>
+            <id>ossrh</id>
+            <name>Maven Central</name>
+            <url>https://central.sonatype.com</url>
+        </repository>
+    </distributionManagement>
 
     <profiles>
         <profile>
@@ -32,7 +59,8 @@
                         <artifactId>maven-gpg-plugin</artifactId>
                         <version>3.2.8</version>
                         <configuration>
-                            <skip>${skip.release.maven.central}</skip>
+                            <!-- REPLACE Set to false to enable signing -->
+                            <skip>true</skip>
                         </configuration>
                         <executions>
                             <execution>
@@ -52,8 +80,13 @@
                         <configuration>
                             <serverId>ossrh</serverId>
                             <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
-                            <skipRemoteStaging>${skip.release.maven.central}</skipRemoteStaging>
+
+                            <!-- REPLACE Set to true to enable auto release -->
+                            <autoReleaseAfterClose>false</autoReleaseAfterClose>
+                            <!-- REPLACE remove to activate releases -->
+                            <skipNexusStagingDeployMojo>true</skipNexusStagingDeployMojo>
+                            <skipRemoteStaging>true</skipRemoteStaging>
+                            <skipStaging>true</skipStaging>
                         </configuration>
                     </plugin>
                 </plugins>
