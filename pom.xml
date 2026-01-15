@@ -16,36 +16,6 @@
         <maven.compiler.release>21</maven.compiler.release>
     </properties>
 
-    <!-- REPLACE -->
-    <licenses>
-        <license>
-            <name>Apache 2.0</name>
-            <url>https://github.com/Hapag-Lloyd/log4j2-filtered-stacktrace-plugin/blob/main/LICENSE</url>
-        </license>
-    </licenses>
-
-    <developers>
-        <developer>
-            <organization>Hapag-Lloyd AG</organization>
-            <organizationUrl>https://www.hapag-lloyd.com/</organizationUrl>
-        </developer>
-    </developers>
-
-    <!-- REPLACE Update with your URL -->
-    <scm>
-        <connection>scm:git:git://github.com/Hapag-Lloyd/Repository-Template-Maven.git</connection>
-        <developerConnection>scm:git:ssh://gitHub.com:Hapag-Lloyd/Repository-Template-Maven.git</developerConnection>
-        <url>https://github.com/Hapag-Lloyd/Repository-Template-Maven/tree/main</url>
-    </scm>
-
-    <distributionManagement>
-        <repository>
-            <id>ossrh</id>
-            <name>Maven Central</name>
-            <url>https://central.sonatype.com</url>
-        </repository>
-    </distributionManagement>
-
     <profiles>
         <profile>
             <id>release</id>
