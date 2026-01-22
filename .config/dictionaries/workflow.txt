@@ -1,4 +1,8 @@
+boto
 codeowners
 infracost
+pythonpath
+tflint
+tfsec
 tfstate
-toplevel
+xmlstarlet
