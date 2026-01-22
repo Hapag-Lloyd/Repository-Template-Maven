@@ -1,21 +1,13 @@
 # Repository-Template-Maven
 
-Template repository for Maven projects. Don't forget to update the README.md file with the project information
+Template repository for Maven projects. Don't forget to update the README.md file with the project information.
 
-## New repository setup
+This repository is used to set up new projects using a Maven setup. It provides some `init` branches to set up all necessary files
+and configurations.
 
-Pre-requisite: Initialize the new repository with the workflows from [Workflow-Templates](https://github.com/Hapag-Lloyd/Workflow-Templates).
+## Initial PRs
 
-1. Copy `update_workflows_user.sh` to the new repository.
-2. Run `update_workflows_user.sh --init --force` in the new repository.
-3. Follow the instructions in the PR description to finalize the setup.
-4. Merge the PRs into the `main` branch.
-
-## Updating existing repositories
-
-1. Run `./github/update_workflows.sh` in your repository.
-2. Follow the instructions in the PR description to finalize the update.
-3. Merge the PRs into the `main` branch.
+Run `setup_project.sh` first to automatically create the initial PRs for setting up the project.
 
 ## Development
 
